@@ -142,7 +142,7 @@ div.block-container {
 # LOAD DATA
 # =====================================
 
-df = pd.read_csv("European_Bank.csv")
+pd.read_csv("../Dataset/European_Bank.csv")
 
 # =====================================
 # LOAD MODEL
