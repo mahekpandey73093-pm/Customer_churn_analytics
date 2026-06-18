@@ -142,16 +142,32 @@ div.block-container {
 # LOAD DATA
 # =====================================
 
-pd.read_csv("../Dataset/European_Bank.csv")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+DATA_PATH = os.path.join(
+    BASE_DIR,
+    "..",
+    "Dataset",
+    "European_Bank.csv"
+)
+
+df = pd.read_csv(DATA_PATH)
 
 # =====================================
 # LOAD MODEL
 # =====================================
 
 try:
-    model = joblib.load("churn_model.pkl")
+    MODEL_PATH = os.path.join(
+        BASE_DIR,
+        "churn_model.pkl"
+    )
+
+    model = joblib.load(MODEL_PATH)
     model_loaded = True
-except:
+
+except Exception as e:
+    st.error(f"Model Error: {e}")
     model_loaded = False
 
 # =====================================
